@@ -41,74 +41,82 @@ const client = new Client({
 
 
 app.post("/", bodyParser.urlencoded({ extended: false }), async (req, res) => {
-  const response = await client.request
-    .post("/api/v4/leads", [
-      {
-        name: req.body.name,
-        price: Number(req.body.price),
-        custom_fields_values: [
-          {
-            field_id: 1211133,
-            values: [{ value: req.body.tg_id }],
-          },
-          {
-            field_id: 1211109,
-            values: [{ value: req.body.phone }],
-          },
-          {
-            field_id: 1211121,
-            values: [{ value: req.body.budget }],
-          },
-          {
-            field_id: 1212467,
-            values: [{ value: req.body.level }],
-          },
-          {
-            field_id: 1211113,
-            values: [{ value: req.body.guests }],
-          },
-          {
-            field_id: 1212851,
-            values: [{ value: req.body.details }],
-          },
-          {
-            field_id: 1211115,
-            values: [{ value: req.body.format }],
-          },
-          {
-            field_id: 1212829,
-            values: [{ value: req.body.new }],
-          },
-          {
-            field_id: 1212469,
-            values: [{ value: req.body.decor }],
-          },
-          {
-            field_id: 1211119,
-            values: [
-              { value: `Развлекательная программа: ${req.body.program}` },
-            ],
-          },
-          {
-            field_id: 1212779,
-            values: [{ value: `Времени на подготовку: ${req.body.time}` }],
-          },
-          {
-            field_id: 1211175,
-            values: [{ value: req.body.who }],
-          },
-          {
-            field_id: 1211123,
-            values: [
-              { value: `Где хотите организовать свадьбу: ${req.body.place}` },
-            ],
-          },
-        ],
-      },
-    ])
-    .then(() => {
-      res.json("Ok");
-    });
+  try {
+    const response = await client.request
+      .post("/api/v4/leads", [
+        {
+          name: req.body.name,
+          price: Number(req.body.price),
+          custom_fields_values: [
+            {
+              field_id: 1211133,
+              values: [{ value: req.body.tg_id }],
+            },
+            {
+              field_id: 1211109,
+              values: [{ value: req.body.phone }],
+            },
+            {
+              field_id: 1211121,
+              values: [{ value: req.body.budget }],
+            },
+            {
+              field_id: 1212467,
+              values: [{ value: req.body.level }],
+            },
+            {
+              field_id: 1211113,
+              values: [{ value: req.body.guests }],
+            },
+            {
+              field_id: 1212851,
+              values: [{ value: req.body.details }],
+            },
+            {
+              field_id: 1211115,
+              values: [{ value: req.body.format }],
+            },
+            {
+              field_id: 1212829,
+              values: [{ value: req.body.new }],
+            },
+            {
+              field_id: 1212469,
+              values: [{ value: req.body.decor }],
+            },
+            {
+              field_id: 1211119,
+              values: [
+                { value: `Развлекательная программа: ${req.body.program}` },
+              ],
+            },
+            {
+              field_id: 1212779,
+              values: [{ value: `Времени на подготовку: ${req.body.time}` }],
+            },
+            {
+              field_id: 1211175,
+              values: [{ value: req.body.who }],
+            },
+            {
+              field_id: 1211123,
+              values: [
+                { value: `Где хотите организовать свадьбу: ${req.body.place}` },
+              ],
+            },
+            {
+              field_id: 634119,
+              values: [{ value: `Метка перехода: ${req.body.li}` }],
+            },
+          ],
+        },
+      ])
+      .then(() => {
+        res.json("Ok");
+      });
+  } catch(err) {
+    res.json("error");
+  }
 });
 
 app.get("/", async (req, res) => {
