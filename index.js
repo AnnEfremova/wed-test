@@ -34,11 +34,6 @@ const client = new Client({
   },
 });
 
-(async () => {
-  const data = await client.request.get("/api/v4/leads/36102549");
-  console.log(data.data);
-})();
-
 app.post("/", bodyParser.urlencoded({ extended: false }), async (req, res) => {
   const response = await client.request
     .post("/api/v4/leads", [
