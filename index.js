@@ -30,7 +30,7 @@ const client = new Client({
     client_secret:
       "5e0IQugUbhMq9LYwLTF4fApEUVI9EqXbA95JLevOV8V6p7PnYHHZeS1HXog7FuGx", // Секретный ключ
     redirect_uri: "https://example.com", // Ссылка для перенаправления,
-    code: "def502004ad9064905a41a14f6ae410de323662efb4a858d6fc8db569501407b4f79e0429816a3591d575677484b396193ac7386aff420050b772cfd20434d7dbece3ccbbd30c130cea3572f37afd5a5304db808918937d4da07d3083bbce49f00573d18b61f247a08c59b12afb9c512c900e6779fcfa58b22c28935796e274d5a0ecb45d5620a86d04ce304744cb956892842e2ebea92bbed943f7a578518d784defc15b5e0f8118591eec27257b5e6842d89358db6d10499d97aab4a84d9ce275d77a7bbbb2b92878613ae418471e9fd45db5187240c5a1d6f35fc5b4694fbb342b0282e1370fc9e856a9adc16908040ba1f37cf2ac5996f5da4c71a25812d07896e77d9fcee893019b03c5afd58f42b7adcac5e386dd13079300355d47c4ae0f6bb953af4313cb07b9cf171c2cc6cadd9a050c58bc2cf9fd0c47456cb8888958abc074c5e1da2360b72e2d70508101a4967e09fd01e1ea8adf36c163d35ef79cfc4102c746bd59c4469252a734a13627c437755432ad07233d43d4c99e4083225231b65301b21bfaff519aed994a8ae5178fd29e36ffdc01be38b587bdeadfcd9eb82dee10c29beb5693c0fccc4aced25a00352d2602e65f6f35da9387636e147d8b2c48171fef355f05721fe4ffaa01fcb58",
+    code: "def50200811e3626a623a942890f1bfdd03f6894d306e016f3ade63a248997502280b84d26e30fcbbca80211584cc5a177982a2882ce8d25e6a14dbfd1f27412a071eea6ddd1b3b7b21a5a80fa5d5ecf63a0b7de017ef38bfec85e049e7f53922667c90e0e1c1e5862bffce47d43cda8a1aa5ca45fffd216c9514a43e21815c9ea43dd210a7cf2373ba0c1f13638a05eecee4b20b71da072d6d103790a8572355a0dcfcbe1717dde9760a768a17fb3f86323e639e4827f73cbc041615ebd960c384818d25ae9498c353f59c640689a59b2308e1428a8232d7a5ca13588e703432afa571df3809e4a50ab8bc6641fcc67a023b1d79d30e40c87dddc74127e7dba2f8f955ae3f61010a0188491867c45d477a0eaf7c4b4abcff935cbfbdea893eddaa5100b55d7eade9f6859af57b7a54dfccb9cb34c459c36546ea27fb9df216daeb8adc6cb50cb8ddeb0d2606b58cade8c964c86df660812d792baab9b0a994d09fe00cbdd6ed4055587d7da32f54d0cd7d912c84de7ed9724a3bfadd5cf144fa6389ac4519cf76b2327a70a3a6fc248b0357246f10be773a3e2b06fb8cf1d7cc81f97e0f775caf24c9d32b2a0a6ff894f000f378ecb8c6aa0f33cc2a6025e5f85e7af7c52b68a227a7bff061c7a2b136e980d9338c9bf6e9fcc07f49b45d3adbcea5c",
   },
 });
 
@@ -38,7 +38,6 @@ const client = new Client({
   const data = await client.request.get("/api/v4/leads");
   console.log(data.data._embedded.leads[0]);
 })();
-
 
 app.post("/", bodyParser.urlencoded({ extended: false }), async (req, res) => {
   try {
@@ -116,7 +115,7 @@ app.post("/", bodyParser.urlencoded({ extended: false }), async (req, res) => {
       .then(() => {
         res.json({ result: "done" });
       });
-  } catch(err) {
+  } catch (err) {
     res.json({ result: "error" });
   }
 });
